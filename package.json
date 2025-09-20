@@ -9,7 +9,7 @@
     "client": "next dev",
     "build": "next build",
     "start": "node server.js",
-    "install-deps": "npm install && npm install next react react-dom tailwindcss autoprefixer postcss"
+    "install-deps": "npm install"
   },
   "dependencies": {
     "express": "^4.18.2",

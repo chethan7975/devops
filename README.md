@@ -62,17 +62,13 @@ cd ngo-volunteer-management
 
 ### 2. Install Dependencies
 ```bash
-# Install root dependencies
+# Install all dependencies
 npm install
-
-# Install all dependencies (backend + frontend)
-npm run install-all
 ```
 
 ### 3. Environment Setup
 
-#### Backend Environment
-Create `server/.env` file:
+Create `.env` file in the root directory:
 ```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/ngo-volunteer-management
@@ -89,11 +85,8 @@ EMAIL_FROM=your-email@gmail.com
 
 # Frontend URL
 CLIENT_URL=http://localhost:3000
-```
 
-#### Frontend Environment
-Create `client/.env.local` file:
-```env
+# Next.js API URL
 NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
 

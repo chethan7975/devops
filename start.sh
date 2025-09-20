@@ -17,35 +17,20 @@ fi
 
 # Install dependencies if node_modules doesn't exist
 if [ ! -d "node_modules" ]; then
-    echo "📦 Installing root dependencies..."
+    echo "📦 Installing dependencies..."
     npm install
-fi
-
-if [ ! -d "server/node_modules" ]; then
-    echo "📦 Installing server dependencies..."
-    cd server && npm install && cd ..
-fi
-
-if [ ! -d "client/node_modules" ]; then
-    echo "📦 Installing client dependencies..."
-    cd client && npm install && cd ..
 fi
 
 # Create necessary directories
 echo "📁 Creating necessary directories..."
-mkdir -p server/certificates
-mkdir -p server/uploads
+mkdir -p certificates
+mkdir -p public
 
-# Check if .env files exist
-if [ ! -f "server/.env" ]; then
-    echo "⚠️  server/.env not found. Copying from .env.example..."
-    cp server/.env.example server/.env
-    echo "📝 Please update server/.env with your configuration."
-fi
-
-if [ ! -f "client/.env.local" ]; then
-    echo "📝 Creating client/.env.local..."
-    echo "NEXT_PUBLIC_API_URL=http://localhost:5000/api" > client/.env.local
+# Check if .env file exists
+if [ ! -f ".env" ]; then
+    echo "⚠️  .env not found. Copying from .env.example..."
+    cp .env.example .env
+    echo "📝 Please update .env with your configuration."
 fi
 
 echo "✅ Setup complete!"
