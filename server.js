@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -44,6 +45,9 @@ app.use('/api/attendance', require('./routes/attendance'));
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'NGO Volunteer Management API is running' });
 });
+
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
